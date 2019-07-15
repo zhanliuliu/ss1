@@ -10,7 +10,9 @@
     width:100px;
     height:100px;
     background: red;
-    transform: translate()
+    position: absolute;
+    top:0;
+    left:0;
 }
 </style>
 </head>
@@ -23,7 +25,9 @@
         let disX = ev.pageX - this.offsetLeft;
         let disY = ev.pageY - this.offsetTop;
         let moveFn = function(ev){
-            box.style.transform = `translate(${ev.pageX - disX}px ${ev.pageY-disY}px)`;
+            // console.log(ev.pageX - disX)
+            box.style.left = `${ev.pageX - disX}px`; 
+            box.style.top =`${ev.pageY-disY}px`;
         }
         function moveUp(){
             document.removeEventListener('mousemove',moveFn);
