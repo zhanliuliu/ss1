@@ -18,16 +18,19 @@
     <div id="box"></div>
 <script>
     const box = document.getElementById('box');
-    
+
     box.addEventListener('mousedown',function(ev){
         let disX = ev.pageX - this.offsetLeft;
         let disY = ev.pageY - this.offsetTop;
         let moveFn = function(ev){
             box.style.transform = `translate(${ev.pageX - disX}px ${ev.pageY-disY}px)`;
         }
+        function moveUp(){
+            document.removeEventListener('mousemove',moveFn);
+            document.removeEventListener('mouseup',moveUp);
+        }
         document.addEventListener('mousemove',moveFn);
-        document.addEventListener('mouseup',function(){});
-
+        document.addEventListener('mouseup',moveUp);
         ev.preventDefault();
     });
 
