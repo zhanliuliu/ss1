@@ -10,6 +10,7 @@
     width:100px;
     height:100px;
     background: red;
+    transform: translate()
 }
 </style>
 </head>
@@ -17,9 +18,11 @@
     <div id="box"></div>
 <script>
     const box = document.getElementById('box');
-
+    
     box.addEventListener('mousedown',function(){
-        document.addEventListener('mousemove',function(){});
+        document.addEventListener('mousemove',function(ev){
+            box.style.transform = `translate(${ev.pageX - disX}px ${ev.pageY-disY}px)`;
+        });
         document.addEventListener('mouseup',function(){});
     });
 
