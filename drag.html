@@ -20,9 +20,10 @@
     const box = document.getElementById('box');
     
     box.addEventListener('mousedown',function(){
-        document.addEventListener('mousemove',function(ev){
+        let moveFn = function(ev){
             box.style.transform = `translate(${ev.pageX - disX}px ${ev.pageY-disY}px)`;
-        });
+        }
+        document.addEventListener('mousemove',moveFn);
         document.addEventListener('mouseup',function(){});
     });
 
