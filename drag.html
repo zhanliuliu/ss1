@@ -20,7 +20,11 @@
 
     box.addEventListener('mousedown',function(){
         document.addEventListener('mousemove',function(){});
-        document.addEventListener('mouseup',function(){});
+        document.addEventListener('mouseup',moveUp);
+        function moveUp(){
+            document.removeEventListener('mousemove',moveFn);
+            document.removeEventListener('mouseup',moveUp);
+        }
     });
 
 
